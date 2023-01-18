@@ -41,3 +41,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /* prototype declaration */
+void parse_and_exec(char *, int);
+void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number);
+
+#endif	/* MONTY_H */
