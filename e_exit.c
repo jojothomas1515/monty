@@ -26,9 +26,10 @@ void f_exit(int n, char *filename)
 /**
  * m_exit - exit the program with an error message on malloc related errors
  */
-void m_exit(void)
+void m_exit(stack_t *stack)
 {
 	fprintf(stderr, "Error: malloc failed\n");
+	free_stack(stack);
 	exit(EXIT_FAILURE);
 }
 
@@ -39,7 +40,7 @@ void m_exit(void)
  * @opcode: operation code
  * @ln: line NUMBER
  */
-void op_exit(int n, char *opcode, int ln)
+void op_exit(int n, char *opcode, int ln, stack_t *stack)
 {
 	(void)n;
 	(void)opcode;
@@ -49,6 +50,7 @@ void op_exit(int n, char *opcode, int ln)
 	{
 	case -1:
 		fprintf(stderr, "L%d: usage: push integer", ln);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 		break;
 

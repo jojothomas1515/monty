@@ -32,5 +32,6 @@ int main(int argc, char *argv[])
 	}
 
 	fclose(monty);
+	free_stack(stack);
 	return (0);
 }

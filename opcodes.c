@@ -16,10 +16,10 @@ void push_stack(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	nn = malloc(sizeof(stack_t));
 	if (nn == NULL)
-		m_exit();
+		m_exit(*stack);
 
 	if (value == 0)
-		op_exit(-1, NULL, line_number);
+		op_exit(-1, NULL, line_number, *stack);
 
 	nn->n = value;
 	nn->next = NULL;
