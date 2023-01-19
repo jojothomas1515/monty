@@ -61,7 +61,12 @@ void op_exit(int n, char *opcode, int ln, stack_t *stack)
 		exit(EXIT_FAILURE);
 		break;
 	case -3:
-		fprintf(stderr, "L<%d>: can't pint, stack empty\n", ln);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", ln);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+		break;
+	case -4:
+		fprintf(stderr, "L%d: can't pop an empty stack", ln);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 		break;

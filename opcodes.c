@@ -90,31 +90,28 @@ end_of:
 
 void pop_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_t *cn = NULL;
+	stack_t *cn = NULL, *temp = NULL;
 
 	(void)line_number;
 
 	if (stack == NULL)
-		goto end_of;
+		op_exit(-4, NULL, line_number, NULL);
 	cn = (*stack);
 	if ((*stack) == NULL)
-		goto end_of;
+		op_exit(-4, NULL, line_number, NULL);
 	while (cn)
 	{
 		if (cn->next == NULL)
-
 			break;
 
 		cn = cn->next;
 	}
-	while (cn)
-	{
-		printf("%d\n", cn->n);
-		cn = cn->prev;
-	}
-
-end_of:
-	(void)NULL;
+	temp = cn->prev;
+	if (temp == NULL)
+		(*stack) = NULL;
+	else
+		temp->next = NULL;
+	free(cn);
 }
 
 /**
