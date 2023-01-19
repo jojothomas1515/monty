@@ -51,17 +51,17 @@ void op_exit(int n, char *opcode, int ln, stack_t *stack)
 	switch (n)
 	{
 	case -1:
-		fprintf(stderr, "L%d: usage: push integer", ln);
+		fprintf(stderr, "L%d: usage: push integer\n", ln);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 		break;
 	case -2:
-		fprintf(stderr, "L%d: unknown instruction %s", ln, opcode);
+		fprintf(stderr, "L%d: unknown instruction %s\n", ln, opcode);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 		break;
 	case -3:
-		fprintf(stderr, "L<%d>: can't pint, stack empty", ln);
+		fprintf(stderr, "L<%d>: can't pint, stack empty\n", ln);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 		break;
