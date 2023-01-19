@@ -11,12 +11,11 @@ void push_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nn = NULL, *cn = NULL;
 
-	(void)cn;
 	if (stack == NULL)
 		exit(EXIT_FAILURE);
 	nn = malloc(sizeof(stack_t));
 	if (nn == NULL)
-		e_exit(-4);
+		m_exit();
 
 	nn->n = value;
 	nn->next = NULL;
@@ -26,7 +25,7 @@ void push_stack(stack_t **stack, unsigned int line_number)
 
 	if ((*stack) == NULL)
 	{
-		(*stack) == nn;
+		(*stack) = nn;
 		goto end_of;
 	}
 
@@ -34,9 +33,9 @@ void push_stack(stack_t **stack, unsigned int line_number)
 	{
 		if (cn->next == NULL)
 		{
-		       cn->next = nn;
-		       nn->prev = cn;
-		       break;
+			cn->next = nn;
+			nn->prev = cn;
+			break;
 		}
 		cn = cn->next;
 	}
@@ -54,14 +53,23 @@ void pall_stack(stack_t **stack, unsigned int line_number)
 	stack_t *cn = NULL;
 
 	if (stack == NULL)
-		e_exit(-5);
-
+		goto end_of;
 	cn = (*stack);
 	if ((*stack) == NULL)
-		e_exit(-5);
+		goto end_of;
 	while (cn)
 	{
-		printf("%s\n", cn->n);
+		if (cn->next == NULL)
+
+			break;
+
 		cn = cn->next;
 	}
+	while (cn)
+	{
+		printf("%d\n", cn->n);
+		cn = cn->prev;
+	}
+
+end_of:
 }

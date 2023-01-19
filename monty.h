@@ -8,6 +8,7 @@
 #include <string.h>
 
 /* global variables */
+extern int value;
 
 /* structures and typedef */
 
@@ -42,12 +43,15 @@ typedef struct instruction_s
 } instruction_t;
 
 /* prototype declaration */
-void parse_and_exec(char *, int);
+void parse_and_exec(char *, int, stack_t **);
 void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number);
 
-/* stacks prototype */
-void pall_stack(stack_t stack, unsigned int line_number);
-void push_stack(stack_t stack, unsigned int line_number);
+/* stacks prototypes */
+void pall_stack(stack_t **stack, unsigned int line_number);
+void push_stack(stack_t **stack, unsigned int line_number);
 
+/* exit prototypes */
+void f_exit(int, char *);
+void m_exit(void);
 
-#endif	/* MONTY_H */
+#endif /* MONTY_H */
