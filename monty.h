@@ -55,5 +55,6 @@ void pint_stack(stack_t **stack, unsigned int line_number);
 /* exit prototypes */
 void f_exit(int, char *);
 void m_exit(void);
+void op_exit(int n, char *opcode, int ln);
 
 #endif /* MONTY_H */

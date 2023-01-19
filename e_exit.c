@@ -44,4 +44,15 @@ void op_exit(int n, char *opcode, int ln)
 	(void)n;
 	(void)opcode;
 	(void)ln;
+
+	switch (n)
+	{
+	case -1:
+		fprintf(stderr, "L%d: usage: push integer", ln);
+		exit(EXIT_FAILURE);
+		break;
+
+	default:
+		break;
+	}
 }
