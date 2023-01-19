@@ -18,7 +18,7 @@ void push_stack(stack_t **stack, unsigned int line_number)
 	if (nn == NULL)
 		m_exit(*stack);
 
-	if (value == 0)
+	if (value == INT_MIN)
 		op_exit(-1, NULL, line_number, *stack);
 
 	nn->n = value;

@@ -22,6 +22,7 @@
                 "system_error": "c",
                 "tuple": "c",
                 "utility": "c",
-                "compare": "c"
+                "compare": "c",
+                "monty.h": "c"
         }
 }
