@@ -18,7 +18,7 @@ void nop_stack(stack_t **stack, unsigned int line_number)
  */
 void add_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_t *cn = NULL, *temp = NULL;
+	stack_t *cn = NULL;
 
 	if (stack == NULL || (*stack) == NULL)
 		op_exit(-6, NULL, line_number, NULL);
