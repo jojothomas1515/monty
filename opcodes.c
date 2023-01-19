@@ -9,7 +9,7 @@
 
 void push_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_t *nn = NULL, *cn = NULL;
+	stack_t *nn = NULL;
 
 	(void)line_number;
 	if (stack == NULL)
@@ -25,24 +25,16 @@ void push_stack(stack_t **stack, unsigned int line_number)
 	nn->next = NULL;
 	nn->prev = NULL;
 
-	cn = (*stack);
-
 	if ((*stack) == NULL)
 	{
 		(*stack) = nn;
 		goto end_of;
 	}
 
-	while (cn)
-	{
-		if (cn->next == NULL)
-		{
-			cn->next = nn;
-			nn->prev = cn;
-			break;
-		}
-		cn = cn->next;
-	}
+	nn->next = (*stack);
+	(*stack)->prev = nn;
+	(*stack) = nn;
+
 end_of:
 	(void)NULL;
 }
@@ -64,18 +56,11 @@ void pall_stack(stack_t **stack, unsigned int line_number)
 	cn = (*stack);
 	if ((*stack) == NULL)
 		goto end_of;
-	while (cn)
-	{
-		if (cn->next == NULL)
 
-			break;
-
-		cn = cn->next;
-	}
 	while (cn)
 	{
 		printf("%d\n", cn->n);
-		cn = cn->prev;
+		cn = cn->next;
 	}
 
 end_of:
@@ -97,18 +82,14 @@ void pop_stack(stack_t **stack, unsigned int line_number)
 	cn = (*stack);
 	if ((*stack) == NULL)
 		op_exit(-4, NULL, line_number, NULL);
-	while (cn)
-	{
-		if (cn->next == NULL)
-			break;
 
-		cn = cn->next;
+	if (cn->next)
+	{
+		temp = cn->next;
+		temp->prev = NULL;
 	}
-	temp = cn->prev;
-	if (temp == NULL)
-		(*stack) = NULL;
-	else
-		temp->next = NULL;
+	(*stack) = temp;
+
 	free(cn);
 }
 
@@ -132,8 +113,16 @@ void pint_stack(stack_t **stack, unsigned int line_number)
 
 	while (cn)
 	{
-		printf("%d\n", cn->n);
+		if (cn->next == NULL)
+
+			break;
+
 		cn = cn->next;
+	}
+	while (cn)
+	{
+		printf("%d\n", cn->n);
+		cn = cn->prev;
 	}
 }
 
