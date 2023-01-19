@@ -11,6 +11,7 @@ void push_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *nn = NULL, *cn = NULL;
 
+	(void)line_number;
 	if (stack == NULL)
 		exit(EXIT_FAILURE);
 	nn = malloc(sizeof(stack_t));
@@ -40,6 +41,7 @@ void push_stack(stack_t **stack, unsigned int line_number)
 		cn = cn->next;
 	}
 end_of:
+	(void)NULL;
 }
 
 /**
@@ -51,6 +53,8 @@ end_of:
 void pall_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *cn = NULL;
+
+	(void)line_number;
 
 	if (stack == NULL)
 		goto end_of;
@@ -72,4 +76,5 @@ void pall_stack(stack_t **stack, unsigned int line_number)
 	}
 
 end_of:
+	(void)NULL;
 }

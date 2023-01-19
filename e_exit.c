@@ -41,4 +41,7 @@ void m_exit(void)
  */
 void op_exit(int n, char *opcode, int ln)
 {
+	(void)n;
+	(void)opcode;
+	(void)ln;
 }

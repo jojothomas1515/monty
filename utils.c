@@ -30,6 +30,7 @@ void parse_and_exec(char *line, int line_num, stack_t **stack)
 	value = tok2 == NULL ? 0 : atoi(tok2);
 	get_opcode_func(tok)(stack, line_num);
 end_of:
+	(void)NULL;
 }
 
 /**
