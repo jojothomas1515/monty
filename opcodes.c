@@ -130,24 +130,14 @@ void pint_stack(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	if (stack == NULL)
-		goto end_of;
+		op_exit(-3, NULL, line_number, NULL);
 	cn = (*stack);
 	if ((*stack) == NULL)
-		goto end_of;
-	while (cn)
-	{
-		if (cn->next == NULL)
+		op_exit(-3, NULL, line_number, NULL);
 
-			break;
-
-		cn = cn->next;
-	}
 	while (cn)
 	{
 		printf("%d\n", cn->n);
-		cn = cn->prev;
+		cn = cn->next;
 	}
-
-end_of:
-	(void)NULL;
 }

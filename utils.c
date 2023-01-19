@@ -48,7 +48,7 @@ void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number)
 			       {NULL, NULL}};
 	int i;
 
-	for (i = 0; i < 2; i++)
+	for (i = 0; i < 4; i++)
 	{
 		if (strcmp(ops[i].opcode, tok) == 0)
 			return (ops[i].f);
