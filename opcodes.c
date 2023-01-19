@@ -92,8 +92,6 @@ void pop_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *cn = NULL, *temp = NULL;
 
-	(void)line_number;
-
 	if (stack == NULL)
 		op_exit(-4, NULL, line_number, NULL);
 	cn = (*stack);
@@ -137,4 +135,32 @@ void pint_stack(stack_t **stack, unsigned int line_number)
 		printf("%d\n", cn->n);
 		cn = cn->next;
 	}
+}
+
+/**
+ * swap_stack - swap the two topmost item on the stack
+ * @stack: target stack
+ * @line_number: line number
+ */
+void swap_stack(stack_t **stack, unsigned int line_number)
+{
+	stack_t *cn = NULL, *temp = NULL;
+
+	if (stack == NULL || (*stack) == NULL)
+		op_exit(-5, NULL, line_number, NULL);
+	cn = (*stack);
+	if (cn->next == NULL)
+		op_exit(-5, NULL, line_number, NULL);
+
+	while (cn)
+	{
+		if (cn->next == NULL)
+			break;
+		cn = cn->next;
+	}
+	temp = cn->prev;
+	cn->next = NULL;
+	temp->prev = cn->prev;
+	temp->next = cn;
+	temp->prev->next = temp;
 }

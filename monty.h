@@ -52,6 +52,7 @@ void pall_stack(stack_t **stack, unsigned int line_number);
 void push_stack(stack_t **stack, unsigned int line_number);
 void pop_stack(stack_t **stack, unsigned int line_number);
 void pint_stack(stack_t **stack, unsigned int line_number);
+void swap_stack(stack_t **stack, unsigned int line_number);
 
 /* exit prototypes */
 void f_exit(int, char *);
@@ -59,6 +60,5 @@ void m_exit(stack_t *);
 void op_exit(int n, char *opcode, int ln, stack_t *);
 
 void free_stack(stack_t *stack);
-
 
 #endif /* MONTY_H */
