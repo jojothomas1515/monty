@@ -160,7 +160,9 @@ void swap_stack(stack_t **stack, unsigned int line_number)
 	}
 	temp = cn->prev;
 	cn->next = NULL;
-	temp->prev = cn->prev;
+	if (cn->prev)
+		temp->prev = cn->prev;
 	temp->next = cn;
-	temp->prev->next = temp;
+	if (temp->prev->next)
+		temp->prev->next = temp;
 }
