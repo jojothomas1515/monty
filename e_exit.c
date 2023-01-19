@@ -44,10 +44,6 @@ void m_exit(stack_t *stack)
  */
 void op_exit(int n, char *opcode, int ln, stack_t *stack)
 {
-	(void)n;
-	(void)opcode;
-	(void)ln;
-
 	switch (n)
 	{
 	case -1:
@@ -66,7 +62,12 @@ void op_exit(int n, char *opcode, int ln, stack_t *stack)
 		exit(EXIT_FAILURE);
 		break;
 	case -4:
-		fprintf(stderr, "L%d: can't pop an empty stack", ln);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", ln);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+		break;
+	case -5:
+		fprintf(stderr, "L%d: can't swap, stack too short\n", ln);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 		break;

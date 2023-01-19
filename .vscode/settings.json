@@ -23,6 +23,7 @@
                 "tuple": "c",
                 "utility": "c",
                 "compare": "c",
-                "monty.h": "c"
+                "monty.h": "c",
+                "unistd.h": "c"
         }
 }
