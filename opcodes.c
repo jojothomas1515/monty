@@ -19,10 +19,10 @@ void push_stack(stack_t **stack, unsigned int line_number)
 	if (nn == NULL)
 		m_exit(*stack);
 
-	if (value == INT_MIN)
+	if (value == LONG_MIN)
 		op_exit(-1, NULL, line_number, *stack);
 
-	nn->n = value;
+	nn->n = (int)value;
 	nn->next = NULL;
 	nn->prev = NULL;
 
