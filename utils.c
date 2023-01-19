@@ -21,6 +21,8 @@ void parse_and_exec(char *line, int line_num, stack_t **stack)
 	tok = strtok(tok, " ");
 	if (tok == NULL)
 		goto end_of;
+	if (tok[0] == '#')
+		goto end_of;
 
 	if (get_opcode_func(tok) == NULL)
 		op_exit(-2, tok, line_num, *stack);
@@ -55,7 +57,7 @@ void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number)
 			       {NULL, NULL}};
 	int i;
 
-	for (i = 0; i < 11; i++)
+	for (i = 0; ops[i].opcode; i++)
 	{
 		if (strcmp(ops[i].opcode, tok) == 0)
 			return (ops[i].f);
