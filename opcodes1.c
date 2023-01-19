@@ -26,12 +26,6 @@ void add_stack(stack_t **stack, unsigned int line_number)
 	if (cn->next == NULL)
 		op_exit(-6, NULL, line_number, NULL);
 
-	while (cn)
-	{
-		if (cn->next == NULL)
-			break;
-		cn = cn->next;
-	}
-	cn->prev->n = cn->prev->n + cn->n;
+	cn->next->n = cn->next->n + cn->n;
 	pop_stack(stack, line_number);
 }

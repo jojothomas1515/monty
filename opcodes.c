@@ -141,17 +141,10 @@ void swap_stack(stack_t **stack, unsigned int line_number)
 	if (cn->next == NULL)
 		op_exit(-5, NULL, line_number, NULL);
 
-	while (cn)
-	{
-		if (cn->next == NULL)
-			break;
-		cn = cn->next;
-	}
-	temp = cn->prev;
-	cn->next = NULL;
-	if (cn->prev)
-		temp->prev = cn->prev;
+	temp = cn->next;
+	cn->next = temp->next;
+	cn->prev = temp;
 	temp->next = cn;
-	if (temp->prev->next)
-		temp->prev->next = temp;
+	temp->prev = NULL;
+	*stack = temp;
 }
