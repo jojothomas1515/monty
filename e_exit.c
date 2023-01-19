@@ -76,6 +76,49 @@ void op_exit(int n, char *opcode, int ln, stack_t *stack)
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 		break;
+	case -7:
+		fprintf(stderr, "L%d: can't sub, stack too short\n", ln);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+		break;
+	default:
+		break;
+	}
+}
+
+/**
+ * op_exit2 - exit the program with an error message on
+ * opcode/operation related errors
+ * @n: exit signals
+ * @opcode: operation code
+ * @ln: line NUMBER
+ * @stack: target stack
+ */
+void op_exit2(int n, char *opcode, int ln, stack_t *stack)
+{
+	(void)opcode;
+	switch (n)
+	{
+	case -8:
+		fprintf(stderr, "L%d: can't div, stack too short\n", ln);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+		break;
+	case -9:
+		fprintf(stderr, "L%d: division by zero\n", ln);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+		break;
+	case -10:
+		fprintf(stderr, "L%d: can't mul, stack too short\n", ln);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+		break;
+	case -11:
+		fprintf(stderr, "L%d: can't mod, stack too short\n", ln);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+		break;
 	default:
 		break;
 	}

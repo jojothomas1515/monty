@@ -55,11 +55,16 @@ void pint_stack(stack_t **stack, unsigned int line_number);
 void swap_stack(stack_t **stack, unsigned int line_number);
 void add_stack(stack_t **stack, unsigned int line_number);
 void nop_stack(stack_t **stack, unsigned int line_number);
+void sub_stack(stack_t **stack, unsigned int line_number);
+void div_stack(stack_t **stack, unsigned int line_number);
+void mul_stack(stack_t **stack, unsigned int line_number);
+void mod_stack(stack_t **stack, unsigned int line_number);
 
 /* exit prototypes */
 void f_exit(int, char *);
 void m_exit(stack_t *);
 void op_exit(int n, char *opcode, int ln, stack_t *);
+void op_exit2(int n, char *opcode, int ln, stack_t *);
 
 void free_stack(stack_t *stack);
 

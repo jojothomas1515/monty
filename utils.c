@@ -48,10 +48,14 @@ void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number)
 			       {"swap", swap_stack},
 			       {"add", add_stack},
 			       {"nop", nop_stack},
+			       {"sub", sub_stack},
+			       {"div", div_stack},
+			       {"mul", mul_stack},
+			       {"mod", mod_stack},
 			       {NULL, NULL}};
 	int i;
 
-	for (i = 0; i < 7; i++)
+	for (i = 0; i < 11; i++)
 	{
 		if (strcmp(ops[i].opcode, tok) == 0)
 			return (ops[i].f);
