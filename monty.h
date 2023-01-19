@@ -45,4 +45,9 @@ typedef struct instruction_s
 void parse_and_exec(char *, int);
 void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number);
 
+/* stacks prototype */
+void pall_stack(stack_t stack, unsigned int line_number);
+void push_stack(stack_t stack, unsigned int line_number);
+
+
 #endif	/* MONTY_H */

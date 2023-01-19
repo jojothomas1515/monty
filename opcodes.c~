@@ -1,0 +1,12 @@
+#include "monty.h"
+
+/**
+ * push_stack - push an item on top the stack
+ * @stack: target stack
+ * @line_number: line number
+ * Return: nothing
+ */
+
+void push_stack(stack_t **stack, unsigned int line_number)
+{
+	
