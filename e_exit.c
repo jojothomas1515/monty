@@ -55,6 +55,10 @@ void op_exit(int n, char *opcode, int ln, stack_t *stack)
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 		break;
+	case -2:
+		fprintf(stderr, "L%d: unknown instruction %s", ln, opcode);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
 
 	default:
 		break;

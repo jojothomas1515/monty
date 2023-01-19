@@ -23,12 +23,10 @@ void parse_and_exec(char *line, int line_num, stack_t **stack)
 		goto end_of;
 
 	if (get_opcode_func(tok) == NULL)
-	{
-		fprintf(stderr, "L%d: unknown instruction %s", line_num, tok);
-		exit(EXIT_FAILURE);
-	}
+		op_exit(-2, tok, line_num, stack);
+
 	tok2 = strtok(NULL, " ");
-	value = tok2 == NULL ? INT_MIN: atoi(tok2);
+	value = tok2 == NULL ? INT_MIN : atoi(tok2);
 	get_opcode_func(tok)(stack, line_num);
 end_of:
 	if (tok)
