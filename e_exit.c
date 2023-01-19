@@ -71,7 +71,11 @@ void op_exit(int n, char *opcode, int ln, stack_t *stack)
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 		break;
-
+	case -6:
+		fprintf(stderr, "L%d: can't add, stack too short\n", ln);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+		break;
 	default:
 		break;
 	}
