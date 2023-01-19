@@ -25,6 +25,7 @@ void f_exit(int n, char *filename)
 
 /**
  * m_exit - exit the program with an error message on malloc related errors
+ * @stack: target stack
  */
 void m_exit(stack_t *stack)
 {
@@ -39,6 +40,7 @@ void m_exit(stack_t *stack)
  * @n: exit signals
  * @opcode: operation code
  * @ln: line NUMBER
+ * @stack: target stack
  */
 void op_exit(int n, char *opcode, int ln, stack_t *stack)
 {
