@@ -78,3 +78,73 @@ void pall_stack(stack_t **stack, unsigned int line_number)
 end_of:
 	(void)NULL;
 }
+
+/**
+ * pop_stack - print all the items in the stack
+ * @stack: target stack
+ * @line_number: line number
+ */
+
+void pop_stack(stack_t **stack, unsigned int line_number)
+{
+	stack_t *cn = NULL;
+
+	(void)line_number;
+
+	if (stack == NULL)
+		goto end_of;
+	cn = (*stack);
+	if ((*stack) == NULL)
+		goto end_of;
+	while (cn)
+	{
+		if (cn->next == NULL)
+
+			break;
+
+		cn = cn->next;
+	}
+	while (cn)
+	{
+		printf("%d\n", cn->n);
+		cn = cn->prev;
+	}
+
+end_of:
+	(void)NULL;
+}
+
+/**
+ * pint_stack - print all the items in the stack
+ * @stack: target stack
+ * @line_number: line number
+ */
+
+void pint_stack(stack_t **stack, unsigned int line_number)
+{
+	stack_t *cn = NULL;
+
+	(void)line_number;
+
+	if (stack == NULL)
+		goto end_of;
+	cn = (*stack);
+	if ((*stack) == NULL)
+		goto end_of;
+	while (cn)
+	{
+		if (cn->next == NULL)
+
+			break;
+
+		cn = cn->next;
+	}
+	while (cn)
+	{
+		printf("%d\n", cn->n);
+		cn = cn->prev;
+	}
+
+end_of:
+	(void)NULL;
+}

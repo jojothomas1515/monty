@@ -4,6 +4,7 @@
  * parse_and_exec - parse and tokeninize the string and execute
  * @line: target string
  * @line_num: line number
+ * @stack: to work on
  * Return: nothing
  */
 
@@ -43,8 +44,8 @@ void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t ops[] = {{"push", push_stack},
 			       {"pall", pall_stack},
-			       /*  {"pop", pop_stack},
-				{"pint", pint_stack}, */
+			       {"pop", pop_stack},
+			       {"pint", pint_stack},
 			       {NULL, NULL}};
 	int i;
 

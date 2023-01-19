@@ -49,6 +49,8 @@ void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number);
 /* stacks prototypes */
 void pall_stack(stack_t **stack, unsigned int line_number);
 void push_stack(stack_t **stack, unsigned int line_number);
+void pop_stack(stack_t **stack, unsigned int line_number);
+void pint_stack(stack_t **stack, unsigned int line_number);
 
 /* exit prototypes */
 void f_exit(int, char *);
