@@ -130,10 +130,9 @@ void op_exit2(int n, char *opcode, int ln, stack_t *stack)
  * @stack: stack
  * Return: 0 always
  */
-int on_exit(int ln, stack_t *stack)
+void on_exit(int ln, stack_t *stack)
 {
 	fprintf(stderr, "L%d: usage: push integer\n", ln);
 	free_stack(stack);
 	exit(EXIT_FAILURE);
-	return (0);
 }
