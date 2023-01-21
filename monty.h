@@ -67,6 +67,7 @@ void f_exit(int, char *);
 void m_exit(stack_t *);
 void op_exit(int n, char *opcode, int ln, stack_t *);
 void op_exit2(int n, char *opcode, int ln, stack_t *);
+int on_exit(int ln, stack_t *stack);
 
 
 #endif /* MONTY_H */
