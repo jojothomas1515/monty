@@ -19,7 +19,9 @@ void push_stack(stack_t **stack, unsigned int line_number)
 	if (nn == NULL)
 		m_exit(*stack);
 
-	if (value == INT_MIN + 1)
+	if (value == NULL)
+		op_exit(-1, NULL, line_number, *stack);
+	if (atoi_check(value) == NULL)
 		op_exit(-1, NULL, line_number, *stack);
 
 	nn->n = (int)value;
