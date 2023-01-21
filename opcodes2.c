@@ -35,7 +35,7 @@ void pchar_stack(stack_t **stack, unsigned int line_number)
 	if (stack == NULL || (*stack) == NULL)
 		op_exit2(-13, NULL, line_number, NULL);
 
-	if (cn->n < 0 || cn->n > 127)
+	if (cn->n < 1 || cn->n > 127)
 		op_exit2(-12, NULL, line_number, NULL);
 
 	printf("%c\n", (char)cn->n);
