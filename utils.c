@@ -54,6 +54,8 @@ void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number)
 			       {"div", div_stack},
 			       {"mul", mul_stack},
 			       {"mod", mod_stack},
+			       {"pchar", pchar_stack},
+			       {"pstr", pstr_stack},
 			       {NULL, NULL}};
 	int i;
 

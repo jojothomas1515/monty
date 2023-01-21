@@ -119,6 +119,16 @@ void op_exit2(int n, char *opcode, int ln, stack_t *stack)
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 		break;
+	case -12:
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", ln);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+		break;
+	case -13:
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", ln);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+		break;
 	default:
 		break;
 	}
