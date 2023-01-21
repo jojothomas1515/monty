@@ -21,10 +21,10 @@ void push_stack(stack_t **stack, unsigned int line_number)
 
 	if (value == NULL)
 		op_exit(-1, NULL, line_number, *stack);
-	if (atoi_check(value) == NULL)
+	if (atoi_check(value) == 0)
 		op_exit(-1, NULL, line_number, *stack);
 
-	nn->n = (int)value;
+	nn->n = atoi(value);
 	nn->next = NULL;
 	nn->prev = NULL;
 
