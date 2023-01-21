@@ -83,7 +83,7 @@ void free_stack(stack_t *stack)
 
 /**
  * atoi_check - this function this if a string can be converted to int
- * @num_to: target string
+ * @num_tok: target string
  * Return: 1 if true 0 if false
  */
 int atoi_check(char *num_tok)
