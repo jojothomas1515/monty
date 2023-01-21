@@ -123,16 +123,3 @@ void op_exit2(int n, char *opcode, int ln, stack_t *stack)
 		break;
 	}
 }
-
-/**
- * on_exit - this function exits the program if atoi_checks fails
- * @ln: line number
- * @stack: stack
- * Return: 0 always
- */
-void on_exit(int ln, stack_t *stack)
-{
-	fprintf(stderr, "L%d: usage: push integer\n", ln);
-	free_stack(stack);
-	exit(EXIT_FAILURE);
-}
