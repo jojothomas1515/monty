@@ -97,7 +97,7 @@ void pop_stack(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pint_stack - print all the items in the stack
+ * pint_stack - print the value at the top of the stack
  * @stack: target stack
  * @line_number: line number
  */
@@ -110,23 +110,10 @@ void pint_stack(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL)
 		op_exit(-3, NULL, line_number, NULL);
-	cn = (*stack);
 	if ((*stack) == NULL)
 		op_exit(-3, NULL, line_number, NULL);
 
-	while (cn)
-	{
-		if (cn->next == NULL)
-
-			break;
-
-		cn = cn->next;
-	}
-	while (cn)
-	{
-		printf("%d\n", cn->n);
-		cn = cn->prev;
-	}
+	printf("%d\n", cn->n);
 }
 
 /**
