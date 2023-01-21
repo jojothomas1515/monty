@@ -28,7 +28,7 @@ void parse_and_exec(char *line, int line_num, stack_t **stack)
 		op_exit(-2, tok, line_num, *stack);
 
 	tok2 = strtok(NULL, " ");
-	value = tok == NULL ? LONG_MIN : (long)atoi(tok2);
+	value = tok2 == NULL ? LONG_MIN : (long)atoi(tok2);
 	get_opcode_func(tok)(stack, line_num);
 end_of:
 	(void)NULL;
