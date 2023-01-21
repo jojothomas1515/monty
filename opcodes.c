@@ -125,6 +125,8 @@ void pint_stack(stack_t **stack, unsigned int line_number)
 	while (cn)
 	{
 		printf("%d\n", cn->n);
+		if (cn->prev == NULL)
+			break;
 		cn = cn->prev;
 	}
 }
