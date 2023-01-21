@@ -43,9 +43,11 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* prototype declaration */
+/* prototype declaration and utilities*/
 void parse_and_exec(char *, int, stack_t **);
 void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t *stack);
+int atoi_check(char *num_tok);
 
 /* stacks prototypes */
 void pall_stack(stack_t **stack, unsigned int line_number);
@@ -66,6 +68,5 @@ void m_exit(stack_t *);
 void op_exit(int n, char *opcode, int ln, stack_t *);
 void op_exit2(int n, char *opcode, int ln, stack_t *);
 
-void free_stack(stack_t *stack);
 
 #endif /* MONTY_H */

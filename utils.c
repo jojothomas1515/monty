@@ -28,11 +28,10 @@ void parse_and_exec(char *line, int line_num, stack_t **stack)
 		op_exit(-2, tok, line_num, *stack);
 
 	tok2 = strtok(NULL, " ");
-	value = tok2 == NULL ? LONG_MIN : (long)atoi(tok2);
+	value = atoi_check(tok2) ? (long)atoi(tok2) : LONG_MIN;
 	get_opcode_func(tok)(stack, line_num);
 end_of:
-	if (tok)
-		(void)NULL;
+	(void)NULL;
 }
 
 /**
@@ -80,4 +79,24 @@ void free_stack(stack_t *stack)
 		stack = stack->next;
 		free(temp);
 	}
+}
+
+/**
+ * atoi_check - this function this if a string can be converted to int
+ * @num_to: target string
+ * Return: 1 if true 0 if false
+ */
+int atoi_check(char *num_tok)
+{
+	char *tok = num_tok;
+
+	if (num_tok == NULL)
+		return (0);
+	while (*tok != '\0')
+	{
+		if (*tok > 0x39 && *tok < 0x30)
+			return (0);
+		tok++;
+	}
+	return (1);
 }
