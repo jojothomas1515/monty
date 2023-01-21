@@ -104,8 +104,6 @@ void pop_stack(stack_t **stack, unsigned int line_number)
 
 void pint_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_t *cn = NULL;
-
 	(void)line_number;
 
 	if (stack == NULL)
@@ -113,7 +111,7 @@ void pint_stack(stack_t **stack, unsigned int line_number)
 	if ((*stack) == NULL)
 		op_exit(-3, NULL, line_number, NULL);
 
-	printf("%d\n", cn->n);
+	printf("%d\n", (*stack)->n);
 }
 
 /**
