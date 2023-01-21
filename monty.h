@@ -9,7 +9,7 @@
 #include <limits.h>
 
 /* global variables */
-extern long int value;
+extern int value;
 
 /* structures and typedef */
 

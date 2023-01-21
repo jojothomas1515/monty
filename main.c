@@ -1,6 +1,6 @@
 #include "monty.h"
 
-long int value = 0;
+int value = 0;
 
 /**
  * main - entry point for my program
