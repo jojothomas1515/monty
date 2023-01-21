@@ -95,6 +95,11 @@ int atoi_check(char *num_tok)
 		return (0);
 	while (*tok != '\0')
 	{
+		if (*tok == 0x2D)
+		{
+			tok++;
+			continue;
+		}
 		if (*tok > 0x39 || *tok < 0x30)
 			return (0);
 		tok++;
