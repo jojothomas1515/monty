@@ -21,6 +21,5 @@ void set_queue(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
-
-	val.mode = "stack";
+	val.mode = "queue";
 }
