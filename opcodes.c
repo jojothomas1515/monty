@@ -68,11 +68,26 @@ void pall_stack(stack_t **stack, unsigned int line_number)
 	if ((*stack) == NULL)
 		goto end_of;
 
-	while (cn)
+	if (strcmp(val.mode, "queue") == 0)
 	{
-		printf("%d\n", cn->n);
-		cn = cn->next;
+		while (cn)
+		{
+			if (cn->next == NULL)
+				break;
+			cn = cn->next;
+		}
+		while (cn)
+		{
+			printf("%d\n", cn->n);
+			cn = cn->prev;
+		}
 	}
+	else
+		while (cn)
+		{
+			printf("%d\n", cn->n);
+			cn = cn->next;
+		}
 
 end_of:
 	(void)NULL;
