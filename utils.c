@@ -58,6 +58,8 @@ void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number)
 			       {"pstr", pstr_stack},
 			       {"rotl", rotl_stack},
 			       {"rotr", rotr_stack},
+			       {"queue", set_queue},
+			       {"stack", set_stack},
 			       {NULL, NULL}};
 	int i;
 

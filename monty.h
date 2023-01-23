@@ -48,6 +48,7 @@ typedef struct instruction_s
 typedef struct mvalue
 {
 	char *n;
+	char *mode;
 	stack_t *tail;
 
 } mval;
@@ -74,6 +75,8 @@ void pchar_stack(stack_t **stack, unsigned int line_number);
 void pstr_stack(stack_t **stack, unsigned int line_number);
 void rotl_stack(stack_t **stack, unsigned int line_number);
 void rotr_stack(stack_t **stack, unsigned int line_number);
+void set_stack(stack_t **stack, unsigned int line_number);
+void set_queue(stack_t **stack, unsigned int line_number);
 
 /* exit prototypes */
 void f_exit(int, char *);

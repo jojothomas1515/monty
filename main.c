@@ -1,6 +1,6 @@
 #include "monty.h"
 
-mval val = {0, NULL};
+mval val = {0, "stack", NULL};
 
 /**
  * main - entry point for my program

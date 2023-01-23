@@ -23,7 +23,6 @@ void push_stack(stack_t **stack, unsigned int line_number)
 		op_exit(-1, NULL, line_number, *stack);
 	if (atoi_check(val.n) == 0)
 		op_exit(-1, NULL, line_number, *stack);
-
 	nn->n = atoi(val.n);
 	nn->next = NULL;
 	nn->prev = NULL;
@@ -35,10 +34,18 @@ void push_stack(stack_t **stack, unsigned int line_number)
 		goto end_of;
 	}
 
-	nn->next = (*stack);
-	(*stack)->prev = nn;
-	(*stack) = nn;
-
+	if (strcmp(val.mode, "queue") == 0)
+	{
+		val.tail->next = nn;
+		nn->prev = val.tail;
+		val.tail = nn;
+	}
+	else
+	{
+		nn->next = (*stack);
+		(*stack)->prev = nn;
+		(*stack) = nn;
+	}
 end_of:
 	(void)NULL;
 }
