@@ -1,6 +1,6 @@
 #include "monty.h"
 
-char *value = 0;
+mval val = {0, NULL};
 
 /**
  * main - entry point for my program

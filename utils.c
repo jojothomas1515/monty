@@ -29,7 +29,7 @@ void parse_and_exec(char *line, int line_num, stack_t **stack)
 
 	tok2 = strtok(NULL, " ");
 
-	value = tok2;
+	val.n = tok2;
 	get_opcode_func(tok)(stack, line_num);
 end_of:
 	(void)NULL;
@@ -56,6 +56,7 @@ void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number)
 			       {"mod", mod_stack},
 			       {"pchar", pchar_stack},
 			       {"pstr", pstr_stack},
+			       {"rotl", rotl_stack},
 			       {NULL, NULL}};
 	int i;
 

@@ -8,9 +8,6 @@
 #include <string.h>
 #include <limits.h>
 
-/* global variables */
-extern char *value;
-
 /* structures and typedef */
 
 /**
@@ -43,6 +40,18 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * mvalue - structure for my global variables
+ * @n: stack value
+ * @tail: tail node of the stack
+ */
+typedef struct mvalue
+{
+	char *n;
+	stack_t *tail;
+
+} mval;
+
 /* prototype declaration and utilities*/
 void parse_and_exec(char *, int, stack_t **);
 void (*get_opcode_func(char *tok))(stack_t **stack, unsigned int line_number);
@@ -63,11 +72,15 @@ void mul_stack(stack_t **stack, unsigned int line_number);
 void mod_stack(stack_t **stack, unsigned int line_number);
 void pchar_stack(stack_t **stack, unsigned int line_number);
 void pstr_stack(stack_t **stack, unsigned int line_number);
+void rotl_stack(stack_t **stack, unsigned int line_number);
 
 /* exit prototypes */
 void f_exit(int, char *);
 void m_exit(stack_t *);
 void op_exit(int n, char *opcode, int ln, stack_t *);
 void op_exit2(int n, char *opcode, int ln, stack_t *);
+
+/* global variables */
+extern mval val;
 
 #endif /* MONTY_H */

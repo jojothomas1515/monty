@@ -19,18 +19,19 @@ void push_stack(stack_t **stack, unsigned int line_number)
 	if (nn == NULL)
 		m_exit(*stack);
 
-	if (value == NULL)
+	if (val.n == NULL)
 		op_exit(-1, NULL, line_number, *stack);
-	if (atoi_check(value) == 0)
+	if (atoi_check(val.n) == 0)
 		op_exit(-1, NULL, line_number, *stack);
 
-	nn->n = atoi(value);
+	nn->n = atoi(val.n);
 	nn->next = NULL;
 	nn->prev = NULL;
 
 	if ((*stack) == NULL)
 	{
 		(*stack) = nn;
+		val.tail = *stack;
 		goto end_of;
 	}
 
@@ -86,6 +87,8 @@ void pop_stack(stack_t **stack, unsigned int line_number)
 	if ((*stack) == NULL)
 		op_exit(-4, NULL, line_number, NULL);
 
+	if (cn->next == NULL)
+		val.tail = NULL;
 	if (cn->next)
 	{
 		temp = cn->next;

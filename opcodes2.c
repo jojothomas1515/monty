@@ -61,3 +61,35 @@ void pstr_stack(stack_t **stack, unsigned int line_number)
 		}
 	printf("\n");
 }
+
+/**
+ * rotl_stack - The opcode rotl rotates the stack to the top.
+ * Description:The top element of the stack becomes the last one,
+ * and the second top element of the stack becomes the first one,
+ * this function never fails.
+ * @stack: target stack
+ * @line_number: line number
+ */
+void rotl_stack(stack_t **stack, unsigned int line_number)
+{
+	stack_t *cn = *stack, *temp;
+
+	(void)line_number;
+	if (stack == NULL || *stack == NULL)
+		goto end_of;
+
+	if (cn->next != NULL)
+	{
+		temp = cn;
+		cn = cn->next;
+		cn->prev = NULL;
+		temp->prev = val.tail;
+		temp->next = NULL;
+		val.tail->next = temp;
+		val.tail = temp;
+		(*stack) = cn;
+	}
+
+end_of:
+	(void)NULL;
+}
