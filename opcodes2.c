@@ -63,6 +63,44 @@ void pstr_stack(stack_t **stack, unsigned int line_number)
 }
 
 /**
+ * rotr_stack - The opcode rotr rotates the stack to the bottom.
+ * Description:The last element of the stack becomes the top one,
+ * this function never fails.
+ * @stack: target stack
+ * @line_number: line number
+ */
+void rotr_stack(stack_t **stack, unsigned int line_number)
+{
+	stack_t *cn = *stack, *temp = NULL, *temp1 = NULL;
+
+	(void)line_number;
+	if (stack == NULL || *stack == NULL)
+		goto end_of;
+
+	if (cn->next != NULL)
+	{
+		temp = cn->next;
+		cn->next = temp1;
+		cn->prev = temp;
+		temp1 = cn;
+		val.tail = temp1;
+
+		while (temp)
+		{
+			cn = temp;
+			temp = temp->next;
+			cn->prev = temp;
+			cn->next = temp1;
+			temp1 = cn;
+		}
+		(*stack) = cn;
+	}
+
+end_of:
+	(void)NULL;
+}
+
+/**
  * rotl_stack - The opcode rotl rotates the stack to the top.
  * Description:The top element of the stack becomes the last one,
  * and the second top element of the stack becomes the first one,
